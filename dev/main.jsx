@@ -85,7 +85,7 @@ function App() {
         marginBottom: '3rem', 
         padding: '2rem', 
         backgroundColor: 'var(--color-fill-weak)',
-        borderRadius: '0.75rem'
+       
       }}>
         <h2>Buttons</h2>
         
@@ -94,21 +94,8 @@ function App() {
             Variants
           </h3>
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-            <Button variant="primary">Primary</Button>
-            <Button variant="secondary">Secondary</Button>
+            <Button variant="normal">Normal</Button>
             <Button variant="outline">Outline</Button>
-            <Button variant="ghost">Ghost</Button>
-          </div>
-        </div>
-
-        <div style={{ marginBottom: '1.5rem' }}>
-          <h3 style={{ fontSize: '0.875rem', textTransform: 'uppercase', color: 'var(--color-text-weak)', marginBottom: '0.5rem' }}>
-            Sizes
-          </h3>
-          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-            <Button size="sm">Small</Button>
-            <Button size="md">Medium</Button>
-            <Button size="lg">Large</Button>
           </div>
         </div>
 
@@ -116,7 +103,7 @@ function App() {
           <h3 style={{ fontSize: '0.875rem', textTransform: 'uppercase', color: 'var(--color-text-weak)', marginBottom: '0.5rem' }}>
             States
           </h3>
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
             <Button onClick={() => alert('Clicked!')}>Normal</Button>
             <Button disabled>Disabled</Button>
           </div>
@@ -179,7 +166,7 @@ function App() {
             }}
             error={error}
           />
-          <Button type="submit" variant="primary" fullWidth>
+          <Button type="submit" variant="normal" fullWidth>
             Soumettre
           </Button>
         </form>

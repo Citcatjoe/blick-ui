@@ -5,81 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@blick/ui - Composants</title>
   <link rel="stylesheet" href="./styles.css">
-  <style>
-    body {
-      font-family: 'InterVariable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      padding: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      background-color: var(--color-fill-default);
-      color: var(--color-text-default);
-    }
-    
-    h1 {
-      margin-bottom: 0.5rem;
-      color: var(--color-text-brand);
-    }
-    
-    .subtitle {
-      color: var(--color-text-weak);
-      margin-bottom: 2rem;
-    }
-    
-    .section {
-      margin-bottom: 3rem;
-      padding: 2rem;
-      background-color: var(--color-fill-weak);
-      border-radius: 0.75rem;
-    }
-    
-    .section h2 {
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      color: var(--color-text-default);
-    }
-    
-    .demo-group {
-      margin-bottom: 2rem;
-    }
-    
-    .demo-group h3 {
-      font-size: 0.875rem;
-      text-transform: uppercase;
-      color: var(--color-text-weak);
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .demo-row {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: flex-start;
-    }
-    
-    .demo-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    
-    .demo-item label {
-      font-size: 0.75rem;
-      color: var(--color-text-weak);
-    }
-    
-    .theme-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      padding: 0.5rem 1rem;
-      background: var(--color-fill-strong);
-      border: 1px solid var(--color-stroke-default);
-      border-radius: 0.5rem;
-      cursor: pointer;
-      font-size: 0.875rem;
-    }
-  </style>
+ 
 </head>
 <body>
   <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
@@ -95,38 +21,12 @@
       <h3>Variants</h3>
       <div class="demo-row">
         <div class="demo-item">
-          <button class="blick-btn blick-btn-primary blick-btn-md">Primary</button>
-          <label>variant="primary"</label>
+          <button class="blick-btn">Normal</button>
+          <label>variant="normal"</label>
         </div>
         <div class="demo-item">
-          <button class="blick-btn blick-btn-secondary blick-btn-md">Secondary</button>
-          <label>variant="secondary"</label>
-        </div>
-        <div class="demo-item">
-          <button class="blick-btn blick-btn-outline blick-btn-md">Outline</button>
+          <button class="blick-btn blick-btn-outline">Outline</button>
           <label>variant="outline"</label>
-        </div>
-        <div class="demo-item">
-          <button class="blick-btn blick-btn-ghost blick-btn-md">Ghost</button>
-          <label>variant="ghost"</label>
-        </div>
-      </div>
-    </div>
-    
-    <div class="demo-group">
-      <h3>Tailles</h3>
-      <div class="demo-row">
-        <div class="demo-item">
-          <button class="blick-btn blick-btn-primary blick-btn-sm">Small</button>
-          <label>size="sm"</label>
-        </div>
-        <div class="demo-item">
-          <button class="blick-btn blick-btn-primary blick-btn-md">Medium</button>
-          <label>size="md"</label>
-        </div>
-        <div class="demo-item">
-          <button class="blick-btn blick-btn-primary blick-btn-lg">Large</button>
-          <label>size="lg"</label>
         </div>
       </div>
     </div>
@@ -135,12 +35,20 @@
       <h3>États</h3>
       <div class="demo-row">
         <div class="demo-item">
-          <button class="blick-btn blick-btn-primary blick-btn-md">Normal</button>
+          <button class="blick-btn">Normal</button>
           <label>Normal</label>
         </div>
         <div class="demo-item">
-          <button class="blick-btn blick-btn-primary blick-btn-md" disabled>Disabled</button>
+          <button class="blick-btn" disabled>Disabled</button>
           <label>disabled</label>
+        </div>
+        <div class="demo-item">
+          <button class="blick-btn blick-btn-outline">Outline</button>
+          <label>Outline</label>
+        </div>
+        <div class="demo-item">
+          <button class="blick-btn blick-btn-outline" disabled>Outline Disabled</button>
+          <label>outline + disabled</label>
         </div>
       </div>
     </div>
@@ -148,7 +56,7 @@
     <div class="demo-group">
       <h3>Pleine largeur</h3>
       <div class="demo-item">
-        <button class="blick-btn blick-btn-primary blick-btn-md blick-btn-full">Full Width Button</button>
+        <button class="blick-btn blick-btn-full">Full Width Button</button>
         <label>fullWidth={true}</label>
       </div>
     </div>
@@ -241,16 +149,25 @@
   </div>
   
   <script>
-    let isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    // Gérer le dark mode avec #theme=dark
+    function checkTheme() {
+      const hash = window.location.hash
+      const shouldBeDark = hash.includes('theme=dark')
+      if (shouldBeDark) {
+        document.documentElement.classList.add('dark-mode')
+      } else {
+        document.documentElement.classList.remove('dark-mode')
+      }
+    }
+    
+    checkTheme()
+    window.addEventListener('hashchange', checkTheme)
     
     function toggleTheme() {
-      isDark = !isDark
-      if (isDark) {
-        document.documentElement.style.setProperty('--is-light-theme', '')
-        document.documentElement.style.setProperty('--is-dark-theme', 'initial')
+      if (window.location.hash.includes('theme=dark')) {
+        window.location.hash = ''
       } else {
-        document.documentElement.style.setProperty('--is-light-theme', 'initial')
-        document.documentElement.style.setProperty('--is-dark-theme', '')
+        window.location.hash = 'theme=dark'
       }
     }
     

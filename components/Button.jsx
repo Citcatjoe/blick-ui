@@ -1,8 +1,7 @@
 import React from 'react'
 
 export function Button({
-  variant = 'primary',
-  size = 'md',
+  variant = 'normal',
   fullWidth = false,
   children,
   className = '',
@@ -10,8 +9,7 @@ export function Button({
 }) {
   const classes = [
     'blick-btn',
-    `blick-btn-${variant}`,
-    `blick-btn-${size}`,
+    variant === 'outline' && 'blick-btn-outline',
     fullWidth && 'blick-btn-full',
     className
   ].filter(Boolean).join(' ')
