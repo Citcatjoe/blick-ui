@@ -11,7 +11,30 @@
   "peerDependencies": {
     "react": "^18.0.0"
   },
-  "keywords": ["react", "blick", "components"],
+  "keywords": [
+    "react",
+    "blick",
+    "components"
+  ],
   "author": "Blick",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Citcatjoe/blick-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Citcatjoe/blick-ui/issues"
+  },
+  "homepage": "https://github.com/Citcatjoe/blick-ui#readme",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "vite": "^7.2.2"
+  }
 }

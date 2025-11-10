@@ -1,10 +1,5 @@
-/* Import de la feuille de style Blick */
-@import url('https://utils.blick.ch/static/global/css/base.css');
-
-/* Styles de base */
-* {
-  box-sizing: border-box;
-}
+/* Import des variables Blick */
+@import './blick-variables.css';
 
 /* Classes utilitaires simples */
 .blick-btn {
@@ -158,4 +153,6 @@
   font-size: 0.875rem;
   color: var(--color-static-red-500);
 }
+
+
 
