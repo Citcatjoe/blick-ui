@@ -1,18 +1,16 @@
 # @blick/ui
 
-Bibliothèque de composants React réutilisables pour la marque Blick.
+Composants React simples pour Blick.
 
-## 📦 Installation
+## Installation
 
 ```bash
 npm install @blick/ui
 ```
 
-## 🚀 Utilisation
+## Utilisation
 
-### Importer les composants
-
-```tsx
+```jsx
 import { Button, Input } from '@blick/ui'
 import '@blick/ui/styles.css'
 
@@ -20,11 +18,48 @@ function App() {
   return (
     <div>
       <Button variant="primary">Cliquez-moi</Button>
-      <Input label="Nom" placeholder="Entrez votre nom" />
+      <Input label="Nom" placeholder="Votre nom" />
     </div>
   )
 }
 ```
+
+## Composants
+
+### Button
+
+```jsx
+// Variants
+<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
+
+// Tailles
+<Button size="sm">Petit</Button>
+<Button size="md">Moyen</Button>
+<Button size="lg">Grand</Button>
+
+// Pleine largeur
+<Button fullWidth>Pleine largeur</Button>
+```
+
+### Input
+
+```jsx
+<Input 
+  label="Email"
+  placeholder="votre@email.com"
+  helperText="Message d'aide"
+  error="Message d'erreur"
+  size="md"
+  fullWidth
+/>
+```
+
+## Dark Mode
+
+Le dark mode fonctionne automatiquement avec les variables CSS Blick.
 
 ## 🎨 Composants disponibles
 
