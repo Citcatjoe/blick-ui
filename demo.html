@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@blick/ui - Composants</title>
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    body {
+      font-family: 'InterVariable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: var(--color-fill-default);
+      color: var(--color-text-default);
+    }
+    
+    h1 {
+      margin-bottom: 0.5rem;
+      color: var(--color-text-brand);
+    }
+    
+    .subtitle {
+      color: var(--color-text-weak);
+      margin-bottom: 2rem;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background-color: var(--color-fill-weak);
+      border-radius: 0.75rem;
+    }
+    
+    .section h2 {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: var(--color-text-default);
+    }
+    
+    .demo-group {
+      margin-bottom: 2rem;
+    }
+    
+    .demo-group h3 {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      color: var(--color-text-weak);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .demo-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .demo-item label {
+      font-size: 0.75rem;
+      color: var(--color-text-weak);
+    }
+    
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--color-fill-strong);
+      border: 1px solid var(--color-stroke-default);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+  
+  <h1>@blick/ui</h1>
+  <p class="subtitle">Composants React simples pour Blick</p>
+  
+  <!-- BUTTONS -->
+  <div class="section">
+    <h2>Button</h2>
+    
+    <div class="demo-group">
+      <h3>Variants</h3>
+      <div class="demo-row">
+        <div class="demo-item">
+          <button class="blick-btn blick-btn-primary blick-btn-md">Primary</button>
+          <label>variant="primary"</label>
+        </div>
+        <div class="demo-item">
+          <button class="blick-btn blick-btn-secondary blick-btn-md">Secondary</button>
+          <label>variant="secondary"</label>
+        </div>
+        <div class="demo-item">
+          <button class="blick-btn blick-btn-outline blick-btn-md">Outline</button>
+          <label>variant="outline"</label>
+        </div>
+        <div class="demo-item">
+          <button class="blick-btn blick-btn-ghost blick-btn-md">Ghost</button>
+          <label>variant="ghost"</label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="demo-group">
+      <h3>Tailles</h3>
+      <div class="demo-row">
+        <div class="demo-item">
+          <button class="blick-btn blick-btn-primary blick-btn-sm">Small</button>
+          <label>size="sm"</label>
+        </div>
+        <div class="demo-item">
+          <button class="blick-btn blick-btn-primary blick-btn-md">Medium</button>
+          <label>size="md"</label>
+        </div>
+        <div class="demo-item">
+          <button class="blick-btn blick-btn-primary blick-btn-lg">Large</button>
+          <label>size="lg"</label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="demo-group">
+      <h3>États</h3>
+      <div class="demo-row">
+        <div class="demo-item">
+          <button class="blick-btn blick-btn-primary blick-btn-md">Normal</button>
+          <label>Normal</label>
+        </div>
+        <div class="demo-item">
+          <button class="blick-btn blick-btn-primary blick-btn-md" disabled>Disabled</button>
+          <label>disabled</label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="demo-group">
+      <h3>Pleine largeur</h3>
+      <div class="demo-item">
+        <button class="blick-btn blick-btn-primary blick-btn-md blick-btn-full">Full Width Button</button>
+        <label>fullWidth={true}</label>
+      </div>
+    </div>
+  </div>
+  
+  <!-- INPUTS -->
+  <div class="section">
+    <h2>Input</h2>
+    
+    <div class="demo-group">
+      <h3>Basique</h3>
+      <div class="demo-row" style="max-width: 400px;">
+        <div class="blick-input-wrapper" style="flex: 1;">
+          <input class="blick-input blick-input-md" placeholder="Entrez du texte..." />
+        </div>
+      </div>
+    </div>
+    
+    <div class="demo-group">
+      <h3>Avec label</h3>
+      <div class="demo-row" style="max-width: 400px;">
+        <div class="blick-input-wrapper" style="flex: 1;">
+          <label class="blick-input-label">Nom complet</label>
+          <input class="blick-input blick-input-md" placeholder="John Doe" />
+        </div>
+      </div>
+    </div>
+    
+    <div class="demo-group">
+      <h3>Avec message d'aide</h3>
+      <div class="demo-row" style="max-width: 400px;">
+        <div class="blick-input-wrapper" style="flex: 1;">
+          <label class="blick-input-label">Email</label>
+          <input class="blick-input blick-input-md" type="email" placeholder="exemple@blick.ch" />
+          <span class="blick-input-helper">Nous ne partagerons jamais votre email</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="demo-group">
+      <h3>Avec erreur</h3>
+      <div class="demo-row" style="max-width: 400px;">
+        <div class="blick-input-wrapper" style="flex: 1;">
+          <label class="blick-input-label">Mot de passe</label>
+          <input class="blick-input blick-input-md error" type="password" placeholder="••••••••" />
+          <span class="blick-input-error">Le mot de passe doit contenir au moins 8 caractères</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="demo-group">
+      <h3>Tailles</h3>
+      <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
+        <div class="blick-input-wrapper">
+          <label class="blick-input-label">Small</label>
+          <input class="blick-input blick-input-sm" placeholder="Small input" />
+        </div>
+        <div class="blick-input-wrapper">
+          <label class="blick-input-label">Medium</label>
+          <input class="blick-input blick-input-md" placeholder="Medium input" />
+        </div>
+        <div class="blick-input-wrapper">
+          <label class="blick-input-label">Large</label>
+          <input class="blick-input blick-input-lg" placeholder="Large input" />
+        </div>
+      </div>
+    </div>
+    
+    <div class="demo-group">
+      <h3>États</h3>
+      <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
+        <div class="blick-input-wrapper">
+          <label class="blick-input-label">Normal</label>
+          <input class="blick-input blick-input-md" placeholder="Normal input" />
+        </div>
+        <div class="blick-input-wrapper">
+          <label class="blick-input-label">Disabled</label>
+          <input class="blick-input blick-input-md" placeholder="Disabled input" disabled />
+        </div>
+      </div>
+    </div>
+    
+    <div class="demo-group">
+      <h3>Pleine largeur</h3>
+      <div class="blick-input-wrapper full-width">
+        <label class="blick-input-label">Full Width Input</label>
+        <input class="blick-input blick-input-md" placeholder="Ce champ prend toute la largeur" />
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    let isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    
+    function toggleTheme() {
+      isDark = !isDark
+      if (isDark) {
+        document.documentElement.style.setProperty('--is-light-theme', '')
+        document.documentElement.style.setProperty('--is-dark-theme', 'initial')
+      } else {
+        document.documentElement.style.setProperty('--is-light-theme', 'initial')
+        document.documentElement.style.setProperty('--is-dark-theme', '')
+      }
+    }
+    
+    // Ajouter des événements pour montrer l'interactivité
+    document.querySelectorAll('.blick-btn:not([disabled])').forEach(btn => {
+      btn.addEventListener('click', () => {
+        console.log('Button clicked:', btn.textContent)
+      })
+    })
+  </script>
+</body>
+</html>
